@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" href="../css/libs/normalize.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+	</head>
+	<body>
+		
+		<div id="preview" class="show">
+			<svg width="100%" height="100%">
+				<g id="container">
+					<svg id="org" x="50%" y="50%"></svg>
+					<svg id="lines_container" x="50%" y="50%"></svg>
+					<line x1="0" x2="100%" y1="50%" y2="50%" class="axis-x"></line>
+					<line x1="50%" x2="50%"  y1="0" y2="100%" class="axis-y"></line>
+				</g>
+			</svg>
+		</div>
+		<div id="dropzone" class="dropzone show"></div>
+		
+		<script type="text/javascript" src="js/plotter.min.js"></script>
+	</body>
+</html>

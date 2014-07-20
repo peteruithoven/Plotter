@@ -1,0 +1,84 @@
+.dropzone {
+	margin: 10px;
+	display: none;
+}
+.dropzone.show {
+	display:block;
+	border: 2px dashed #BBB;
+	border-radius: 5px;
+}
+#dropzone {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+#dropzone:after {
+	position: absolute;
+	top: 30%;
+	left: 44.7%;
+	font-size: 50px;
+	color: #bbb;
+	content: "SVG";
+}
+
+#preview {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: none;
+}
+#preview.show {
+	display: block;
+}
+#preview svg {
+	overflow:visible;
+}
+#preview #org {
+	opacity: 1;
+}
+#preview #lines_container {
+	opacity: 0.5;
+}
+#preview line {
+	vector-effect: non-scaling-stroke;
+}
+#preview circle {
+	fill: none;
+	vector-effect: non-scaling-stroke;
+}
+#preview .move {
+	stroke: #9cff46;
+}
+#preview .line {
+	stroke: #ff4646;
+}
+#preview .fade {
+	opacity: 0.1;
+}
+#preview .axis-x, #preview .axis-y {
+	stroke: #ddd;
+	fill: none;
+}
+#help {
+	width: 30em;
+	text-align: left;
+	border: 1px solid #bbb;
+	padding: 0 1em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -9em 0 0 -16em;
+	box-shadow: 0px 2px 6px 0px rgba(16, 16, 16, 0.65);
+	border-radius: 5px;
+	background: #fff;
+}
+#help h3{
+	margin: 0.9em 0 0 0;
+}
+.hide {
+	display: none;
+}

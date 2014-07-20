@@ -1,2 +1,4 @@
-
-node_modules/gulp-concat/node_modules/concat-with-sourcemaps/index.js
+node_modules/*
+www/**.js
+www/**.css
+tests/js/plotter.min.js
