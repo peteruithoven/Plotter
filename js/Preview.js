@@ -78,6 +78,7 @@ function Preview() {
 			.attr(lineAttr);
 		lines.enter().append("line")
 			.attr(lineAttr);
+		lines.exit().remove();
 		
 		_steps = lines[0];
 	
@@ -92,6 +93,7 @@ function Preview() {
 			.attr(circleAttr);
 		circles.enter().append("circle")
 			.attr(circleAttr);
+		circles.exit().remove();
 	}
 	function getScale() {
 		return _scale;
