@@ -70,8 +70,7 @@ function Preview() {
 			y1: function(d,i){ return (i==0)? 0 : _code.lines[i-1].y},
 			x2: function(d){ return d.x},
 			y2: function(d){ return d.y},
-			class: function(d) { return (d.isMove)? "move" : "line" } 
-//			"vector-effect":"non-scaling-stroke"
+			class: function(d) { return (d.isMove)? "move" : "line" }
 		}
 		console.log("  _code.lines: ",_code.lines);
 		var lines = _linesContainer.selectAll("line").data(_code.lines)
