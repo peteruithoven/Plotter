@@ -38,9 +38,9 @@ function SVGParser() {}
 		
 		// using replace to go over all matches and per match check subgroups
 		pathData.replace(cmdRegExp,function(match, type, rawParams) {
-			console.log("  match: "+match);
-			console.log("    type: "+type);
-			console.log("    rawParams: "+rawParams);
+//			console.log("  match: "+match);
+//			console.log("    type: "+type);
+//			console.log("    rawParams: "+rawParams);
 			
 			var isMove = (type == "m" || type == "M");
 			var isAbsolute = isAbsoluteRegExp.test(type);
@@ -56,7 +56,7 @@ function SVGParser() {}
 				var paramSetLength = paramSetLengths[type.toLowerCase()];
 //				console.log("    paramSetLength: ",paramSetLength);
 				var params = rawParams.split(" ");
-				console.log("    params: ",params);
+//				console.log("    params: ",params);
 				for(var i in params) {
 					params[i]	= parseFloat(params[i]);
 				}
@@ -102,12 +102,12 @@ function SVGParser() {}
 					}
 					point.x = prevX;
 					point.y = prevY;
-					console.log("      point: ",point);
+//					console.log("      point: ",point);
 					points.push(point);
 				}
 			}
 		});
-		console.log("      points: ",points);
+//		console.log("      points: ",points);
 		return points;
 	}
 })();

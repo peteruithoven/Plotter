@@ -15,26 +15,57 @@ function Code() {
 //		object.data = content;
 		
 		//var div = document.createElement("div");
-		var container = document.createElement("svg");
-      /* properly close svg tags and add them to the DOM */
-		container.innerHTML = content
-			//.replace(/\n/, '');
-			//.replace(/<(\w+)([^<]+?)\/>/g, '<$1$2></$1>')
-		//container.
+//		var container = document.createElement("svg");
+//		container.innerHTML = content;
+		
+		var container = document.createElement("div");
+		console.log("  container: ",container);
+		var svg = SVG(container)
+		//console.log("  svg: ",svg);
+		var store = svg.svg(content);
+		//console.log("  store: ",store);
+		
+//		function getStructure(element){
+//			var structure = {type:element.tagName};
+//			if(element.children.length > 0) {
+//				structure.children = [];
+//				for(var i=0;i<element.children.length;i++) {
+//					var child = element.children[i];
+//					structure.children.push(getStructure(child))
+//				}
+//			}
+//			return structure;
+//		}
+//		console.log("structure: ",JSON.stringify(getStructure(svg.node)))
+		svg.toPath(true);
+//		console.log("structure: ",JSON.stringify(getStructure(svg.node)))
+		
+//		var elements = container.querySelectorAll("svg *:not(g):not(svg):not(defs)");
+//		console.log(" elements: ",elements);
+//		for (var i = 0; i < elements.length; ++i) {
+//			var element = elements[i].instance;
+//			//console.log(" element: ",element);
+//			console.log(" element.type: ",element.type);
+//			element.toPath(true);
+//		}
+		
+		//elements = container.querySelectorAll("*");
+		//console.log(" elements: ",elements);
+		
 		var paths = container.querySelectorAll("path");
-		_self.lines = [];
-		console.log("  paths: ",paths);
-		console.log("  paths.length: ",paths.length);
+		
+//		console.log("  paths: ",paths);
+//		console.log("  paths.length: ",paths.length);
 		for (var i = 0; i < paths.length; ++i) {
 			var path = paths[i];
-			console.log("    path: ",path);
+			//console.log("    path: ",path);
 			
 			var pathData = path.getAttribute("d");
-			console.log("    pathData: ",pathData);
+//			console.log("    pathData: ",pathData);
 			var pathPoints = SVGParser.parsePathData(pathData);
-			console.log("    pathPoints: ",pathPoints);
+//			console.log("    pathPoints: ",pathPoints);
 			_self.lines = _self.lines.concat(pathPoints);
-			console.log("    _self.lines: ",_self.lines);
+			//console.log("    _self.lines: ",_self.lines);
 			
 			// using getPointAtLength
 //			var pathLength = path.getTotalLength()

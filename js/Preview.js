@@ -32,8 +32,8 @@ function Preview() {
 		
 	};
 	this.setOriginal = function(content) {
-		var orgContainer = document.getElementById("org");
-  	orgContainer.innerHTML = content;
+		var org = SVG('org')
+		var store = org.svg(content)
 	};
 	this.setContent = function(code) {
 		_code = code;

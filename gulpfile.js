@@ -4,8 +4,15 @@ var concat = require('gulp-concat');
 
 var paths = {
   tests: 'tests/',
-	scripts: ['js/libs/*.js','js/*/*.js','js/*.js'],
-	testScripts: ['!js/main.js','js/libs/*.js','js/*/*.js','js/*.js']
+	scripts: ['js/libs/svg.js',
+						'js/libs/*.js',
+						'js/*/*.js',
+						'js/*.js'],
+	testScripts: ['!js/main.js',
+								'js/libs/svg.js',
+								'js/libs/*.js',
+								'js/*/*.js',
+								'js/*.js']
 };
 
 gulp.task('scripts', function() {
