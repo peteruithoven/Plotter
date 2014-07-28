@@ -157,7 +157,6 @@
 						childrenClone.push(children[i].instance);
 					}
 					for (var i in childrenClone) {
-						console.log("  child:",childrenClone[i].type,childrenClone[i]);
 						childrenClone[i].toPath(replace);
 					}
 					break;

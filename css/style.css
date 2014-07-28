@@ -38,10 +38,10 @@
 	overflow:visible;
 }
 #preview #org {
-	opacity: 1;
+	opacity: 0.5;
 }
 #preview #lines_container {
-	opacity: 0.5;
+	opacity: 1;
 }
 #preview line {
 	vector-effect: non-scaling-stroke;

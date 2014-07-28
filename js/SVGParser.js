@@ -45,7 +45,7 @@ function SVGParser() {}
 			var isMove = (type == "m" || type == "M");
 			var isAbsolute = isAbsoluteRegExp.test(type);
 			
-			if(rawParams.length === 0) {
+			if(rawParams === undefined || rawParams.length === 0) {
 				if(type.toLowerCase() === "z") {
 					var point = new Point(isMove);
 					prevX = point.x = points[0].x;

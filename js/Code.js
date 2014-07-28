@@ -15,37 +15,70 @@ function Code() {
 		var svg = SVG(container)
 		svg.style('opacity:0;position:fixed;left:100%;top:100%;overflow:hidden')
 		var store = svg.svg(content);
-
+		
+		function getStructure(element){
+			var structure = {type:element.tagName};
+			if(element.children.length > 0) {
+				structure.children = [];
+				for(var i=0;i<element.children.length;i++) {
+					var child = element.children[i];
+					structure.children.push(getStructure(child))
+				}
+			}
+			return structure;
+		}
+		
+//		console.log("structure: ",JSON.stringify(getStructure(svg.node)));
+		
 		// turn all shapes into paths
 		svg.toPath(true);
-		
-		var paths = container.querySelectorAll("path");
-		
+//		console.log("structure: ",JSON.stringify(getStructure(svg.node)));
+
+//		var paths = container.querySelectorAll("path");
 //		console.log("  paths: ",paths);
 //		console.log("  paths.length: ",paths.length);
-		for (var i = 0; i < paths.length; ++i) {
-			var path = paths[i];
-			console.log("    path: ",path);
-			
-			var pathData = path.getAttribute("d");
-			console.log("    pathData: ",pathData);
-			var pathPoints = SVGParser.parsePathData(pathData);
+//		for (var i = 0; i < paths.length; ++i) {
+//			var path = paths[i];
+//			var pathData = path.getAttribute("d");
+//			console.log("    pathData: ",pathData);
+//			var pathPoints = SVGParser.parsePathData(pathData);
 //			console.log("    pathPoints: ",pathPoints);
-			_self.lines = _self.lines.concat(pathPoints);
-			//console.log("    _self.lines: ",_self.lines);
+//			_self.lines = _self.lines.concat(pathPoints);
+//			console.log("    _self.lines: ",_self.lines);
+//		}
+//		_self.length = _self.lines.length;
+		
+		svg.toPoly("2px",true);
+//		console.log("structure: ",JSON.stringify(getStructure(svg.node)));
+		
+		var polys = container.querySelectorAll("polyline,polygon");
+		for (var i = 0; i < polys.length; ++i) {
+			var poly = polys[i].instance;
+			console.log("     poly: ",poly);
+			console.log("     poly.node: ",poly.node);
+			var pointsArray = poly.array;
+			//pointsArray.move(poly.trans.x,poly.trans.y);
+			var points = pointsArray.value;
 			
-			// using getPointAtLength
-//			var pathLength = path.getTotalLength()
-//			console.log("  pathLength: ",pathLength);
-//			var sampleDis = 10;
-//			var numSamples = Math.floor(pathLength/sampleDis);
-//			var pathPoints = [];
-//			for(var j=0;j<numSamples;j++) {
-//				var length = pathLength/numSamples*j;
-//				var point = path.getPointAtLength(length);
-//				_self.lines.push(point);
-//			}
+			for (var j = 0; j < points.length; j++) {
+				var point = points[j];
+//				console.log("      point: ",point);
+				var isMove = (j==0);
+				//console.log("        isMove: ",isMove);
+				var parsedPoint = new Point(isMove);
+				parsedPoint.x = point[0];
+				parsedPoint.y = point[1];
+//				console.log("        parsedPoint: ",parsedPoint);
+				_self.lines.push(parsedPoint);
+			}
+			if(poly.type === "polygon") {
+				var parsedPoint = new Point(false);
+				parsedPoint.x = points[0][0];
+				parsedPoint.y = points[0][1];
+				_self.lines.push(parsedPoint);
+			}
 		}
+		
 		_self.length = _self.lines.length;
 	};
 }
