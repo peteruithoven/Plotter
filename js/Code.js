@@ -77,6 +77,11 @@ function Code() {
 			}
 		}
 		
+		var groups = container.querySelectorAll("g g");
+		if(groups.length > 0) {
+			var n = noty({type: 'warning',text: 'Groups are not properly supported yet'});
+		}
+		
 		_self.length = _self.lines.length;
 	};
 }

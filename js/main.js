@@ -13,3 +13,5 @@ dropZone.onload = function(content) {
 	preview.setOriginal(content);
 	preview.setContent(code);
 };
+
+$.noty.defaults.layout = 'topRight';
