@@ -54,27 +54,25 @@ function Code() {
 		var polys = container.querySelectorAll("polyline,polygon");
 		for (var i = 0; i < polys.length; ++i) {
 			var poly = polys[i].instance;
-			console.log("     poly: ",poly);
-			console.log("     poly.node: ",poly.node);
 			var pointsArray = poly.array;
-			//pointsArray.move(poly.trans.x,poly.trans.y);
-			var points = pointsArray.value;
 			
+			//console.log("  move: ",poly.trans.x,poly.trans.y)
+			//pointsArray.move(bbox.x+poly.trans.x,bbox.y+poly.trans.y);
+			var points = pointsArray.value;
 			for (var j = 0; j < points.length; j++) {
 				var point = points[j];
-//				console.log("      point: ",point);
 				var isMove = (j==0);
 				//console.log("        isMove: ",isMove);
 				var parsedPoint = new Point(isMove);
-				parsedPoint.x = point[0];
-				parsedPoint.y = point[1];
+				parsedPoint.x = point[0]+poly.trans.x;
+				parsedPoint.y = point[1]+poly.trans.y;
 //				console.log("        parsedPoint: ",parsedPoint);
 				_self.lines.push(parsedPoint);
 			}
 			if(poly.type === "polygon") {
 				var parsedPoint = new Point(false);
-				parsedPoint.x = points[0][0];
-				parsedPoint.y = points[0][1];
+				parsedPoint.x = points[0][0]+poly.trans.x;
+				parsedPoint.y = points[0][1]+poly.trans.y;
 				_self.lines.push(parsedPoint);
 			}
 		}
