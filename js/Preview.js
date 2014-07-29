@@ -85,7 +85,7 @@ function Preview() {
 		var circleAttr = {
 			cx: function(d){ return d.x},
 			cy: function(d){ return d.y},
-			r: 5,
+			r: 0.5,
 			class: function(d) { return (d.isMove)? "move" : "line" } 
 		}
 		var circles = _linesContainer.selectAll("circle").data(_code.lines)
