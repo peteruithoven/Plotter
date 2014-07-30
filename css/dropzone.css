@@ -1,0 +1,24 @@
+.dropzone {
+	margin: 10px;
+	display: none;
+}
+.dropzone.show {
+	display:block;
+	border: 2px dashed #BBB;
+	border-radius: 5px;
+}
+#dropzone {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+#dropzone:after {
+	position: absolute;
+	top: 30%;
+	left: 44.7%;
+	font-size: 50px;
+	color: #bbb;
+	content: "SVG";
+}

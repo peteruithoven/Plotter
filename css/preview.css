@@ -1,0 +1,41 @@
+#preview {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: none;
+}
+#preview.show {
+	display: block;
+}
+#preview svg {
+	overflow:visible;
+}
+#preview #org {
+	opacity: 0.5;
+}
+#preview #lines_container {
+	opacity: 1;
+}
+#preview * {
+	fill: none;
+	vector-effect: non-scaling-stroke;
+}
+#preview #org *{
+  stroke: #000;
+	stroke-width: 1px;
+}
+#preview .move {
+	stroke: #9cff46;
+}
+#preview .line {
+	stroke: #ff4646;
+}
+#preview .fade {
+	opacity: 0.1;
+}
+#preview .axis-x, #preview .axis-y {
+	stroke: #ddd;
+	fill: none;
+}
